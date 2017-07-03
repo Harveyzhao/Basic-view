@@ -6,33 +6,43 @@
         </li>
         <li>
             <bv-icon type="step-backward" />
+            <span>step-backward</span>
         </li>
         <li>
             <bv-icon type="step-backward" />
+            <span>step-backward</span>
         </li>
         <li>
-            <bv-icon type="step-forward" />
+            <bv-icon type="step-backward" />
+            <span>step-backward</span>
         </li>
         <li>
             <bv-icon type="fast-backward" />
+            <span>fast-backward</span>
         </li>
         <li>
             <bv-icon type="shrink" />
+            <span>shrink</span>
         </li>
         <li>
             <bv-icon type="arrows-alt" />
+            <span>arrows-alt</span>
         </li>
         <li>
             <bv-icon type="down" />
+            <span>down</span>
         </li>
         <li>
             <bv-icon type="up" />
+            <span>up</span>
         </li>
         <li>
             <bv-icon type="left" />
+            <span>left</span>
         </li>
         <li>
             <bv-icon type="right" />
+            <span>right</span>
         </li>
     </div>
 </template>

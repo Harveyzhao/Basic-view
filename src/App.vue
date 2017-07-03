@@ -25,6 +25,17 @@ export default {
   }
 }
 
+aside {
+  a {
+    font-size: 15px;
+    padding: 5px 20px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 10px;
+    text-decoration: none!important;
+  }
+}
+
 hr {
   margin: 20px 0;
 }
