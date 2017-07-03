@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <aside>
-      <router-link to="/button">button</router-link>
-      <router-link to="/icon">icon</router-link>
+      <router-link to="/button">Button</router-link>
+      <router-link to="/icon">Icon</router-link>
+      <router-link to="/grid">Grid</router-link>
     </aside>
     <router-view class="view"></router-view>
   </div>
@@ -17,7 +18,7 @@ export default {
 <style lang="less">
 .view {
   padding: 50px;
-  div {
+  >div {
     margin: 20px 0;
   }
   br {

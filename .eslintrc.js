@@ -48,6 +48,8 @@ module.exports = {
     "no-shadow": 0,
     "no-underscore-dangle": 0,
     "linebreak-style": 0,
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "no-unexpected-multiline": 0,
+    "no-sequences": 0
   }
 }
