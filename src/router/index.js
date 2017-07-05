@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Button from '@/containers/Button'
 import Icon from '@/containers/Icon'
 import Grid from '@/containers/Grid'
+import Alert from '@/containers/Alert'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
             path: '/grid',
             name: 'Grid',
             component: Grid,
+        },
+        {
+            path: '/alert',
+            name: 'Alert',
+            component: Alert,
         },
     ],
 })
