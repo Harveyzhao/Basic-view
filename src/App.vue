@@ -5,6 +5,7 @@
       <router-link to="/icon">Icon</router-link>
       <router-link to="/grid">Grid</router-link>
       <router-link to="/alert">Alert</router-link>
+      <router-link to="/breadcrumb">Breadcrumb</router-link>
     </aside>
     <router-view class="view"></router-view>
   </div>
