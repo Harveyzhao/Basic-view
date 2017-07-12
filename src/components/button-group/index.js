@@ -1,8 +1,7 @@
-import BvButtonGroup from '../button/button-group'
+import ButtonGroup from '../button/button-group'
 
-/* istanbul ignore next */
-BvButtonGroup.install = (Vue) => {
-    Vue.component(BvButtonGroup.name, BvButtonGroup)
+ButtonGroup.install = (Vue) => {
+    Vue.component(ButtonGroup.name, ButtonGroup)
 }
 
-export default BvButtonGroup
+export default ButtonGroup

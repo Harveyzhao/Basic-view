@@ -4,6 +4,7 @@
       <router-link to="/button">Button</router-link>
       <router-link to="/icon">Icon</router-link>
       <router-link to="/grid">Grid</router-link>
+      <router-link to="/layout">Layout</router-link>
     </aside>
     <router-view class="view"></router-view>
   </div>
