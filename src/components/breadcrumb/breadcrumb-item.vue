@@ -20,20 +20,15 @@ export default {
         'bv-icon': Icon,
     },
     props: {
-        separator: '/',
+        separator: {
+            type: String,
+            default: '/',
+        },
         href: '',
         prefixCls: {
             type: String,
-            default: 'bv-breadcrumb-item',
+            default: 'bv-breadcrumb',
         },
-    },
-    // data() {
-    //     return {
-    //         hasHref: 'href' in this,
-    //     }
-    // },
-    computed: {
-
     },
 }
 </script>

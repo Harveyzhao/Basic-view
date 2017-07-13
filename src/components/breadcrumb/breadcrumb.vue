@@ -1,17 +1,19 @@
-<template>
-    <div className={classNames(className, prefixCls)}>
-        {crumbs}
-    </div>
-</template>
+
+    <!-- <div :className="classes">
+        <bv-breadcrumb-item v-for="item in routes"></bv-breadcrumb-item>
+    </div> -->
 
 <script>
 import './style/index'
 import Icon from '../icon'
+import BreadcrumbItem from './breadcrumb-item'
+
 
 export default {
     name: 'Bvbreadcrumb',
     components: {
         'bv-icon': Icon,
+        'bv-breadcrumb-item': BreadcrumbItem,
     },
     props: {
         prefixCls: {
@@ -24,72 +26,70 @@ export default {
         params: {
             type: Object,
         },
-        separator: '',
+        separator: {
+            type: String,
+            default: '/',
+        },
         itemRender: '',
     },
     data() {
         return {
-            closing: true,
-            closed: false,
         }
     },
     computed: {
-        classes() {
-            let { type, showIcon } = this
-            const { banner, description, prefixCls } = this
-            // banner模式默认有 Icon
-            showIcon = banner && showIcon === undefined ? true : showIcon
-            // banner模式默认为警告
-            type = banner && type === undefined ? 'warning' : type || 'info'
-
-            return [
-                prefixCls,
-                `${prefixCls}-${type}`,
-                !this.closing ? `${prefixCls}-close` : '',
-                description ? `${prefixCls}-with-description` : '',
-                !showIcon ? `${prefixCls}-no-icon` : '',
-                banner ? `${prefixCls}-banner` : '',
-            ]
-        },
-        iconType() {
-            const { type, description } = this
-            let iconType = ''
-            switch (type) {
-            case 'success':
-                iconType = 'check-circle'
-                break
-            case 'info':
-                iconType = 'info-circle'
-                break
-            case 'error':
-                iconType = 'cross-circle'
-                break
-            case 'warning':
-                iconType = 'exclamation-circle'
-                break
-            default:
-                iconType = 'default'
-            }
-            if (description) {
-                iconType += '-o'
-            }
-            return iconType
-        },
     },
     methods: {
-        handleClose() {
-            this.closing = false
-            this.$el.style.height = `${this.$el.offsetHeight}px`
-            this.$el.style.height = `${this.$el.offsetHeight}px`
-            this.$on('close')
-            setTimeout(() => {
-                this.animationEnd()
-            }, 300)
-        },
-        animationEnd() {
-            this.closed = true
-            this.closing = true
-        },
+    },
+
+    render(h) {
+        let crumbs
+        const { separator, prefixCls, routes, params = {} } = this
+        function getBreadcrumbName(route, params) {
+            if (!route.breadcrumbName) {
+                return null
+            }
+            const paramsKeys = Object.keys(params).join('|')
+            const name = route.breadcrumbName.replace(new RegExp(`:(${paramsKeys})`, 'g'), (replacement, key) => params[key] || replacement)
+            return name
+        }
+
+        function defaultItemRender(route, params, routes, paths) {
+            const isLastItem = routes.indexOf(route) === routes.length - 1
+            const name = getBreadcrumbName(route, params)
+            return isLastItem ? h('span', {}, [{ name }]) : h('a', { props: { href: `#/${paths.join('/')}` } }, [{ name }])
+        }
+        if (routes && routes.length > 0) {
+            const paths = []
+            crumbs = routes.map((route) => {
+                route.path = route.path || ''
+                let path = route.path.replace(/^\//, '')
+                Object.keys(params).forEach((key) => {
+                    path = path.replace(`:${key}`, params[key])
+                })
+                if (path) {
+                    paths.push(path)
+                }
+                const item = []
+                item.push(defaultItemRender(route, params, routes, paths))
+                return h('bv-breadcrumb-item', { props: { separator, key: route.breadcrumbName || path } }, item)
+            })
+        } else {
+            crumbs = this.$slots.default.map((element) => {
+                if (!element) {
+                    return element
+                }
+                return element
+                // return h('bv-breadcrumb-item', { separator, index }, [])
+            })
+        }
+        return h('div', {
+            class: {
+                [prefixCls]: true,
+            },
+        }, [
+            crumbs,
+        ])
     },
 }
+
 </script>
