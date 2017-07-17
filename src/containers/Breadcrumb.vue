@@ -1,6 +1,6 @@
 <template>
     <div class="breadcrumb">
-        <bv-breadcrumb>
+         <bv-breadcrumb>
             <bv-breadcrumb-item>Home</bv-breadcrumb-item>
             <bv-breadcrumb-item><a href="">Application Center</a></bv-breadcrumb-item>
             <bv-breadcrumb-item><a href="">Application List</a></bv-breadcrumb-item>
@@ -14,7 +14,7 @@
                 <span>Application List</span>
             </bv-breadcrumb-item>
             <bv-breadcrumb-item> Application</bv-breadcrumb-item>
-        </bv-breadcrumb>
+        </bv-breadcrumb> 
 
         <bv-breadcrumb separator=">">
             <bv-breadcrumb-item>Home</bv-breadcrumb-item>

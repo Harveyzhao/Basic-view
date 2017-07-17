@@ -74,13 +74,7 @@ export default {
                 return h('bv-breadcrumb-item', { props: { separator, key: route.breadcrumbName || path } }, item)
             })
         } else {
-            crumbs = this.$slots.default.map((element) => {
-                if (!element) {
-                    return element
-                }
-                return element
-                // return h('bv-breadcrumb-item', { separator, index }, [])
-            })
+            crumbs = this.$slots.default
         }
         return h('div', {
             class: {

@@ -6,7 +6,7 @@
         <span v-else :class="prefixCls+'-link'" href>
             <slot></slot>
         </span>
-        <span :class="prefixCls+'-separator'">{{separator}}</span>
+        <span :class="prefixCls+'-separator'">{{$parent.separator}}</span>
     </span>
 </template>
 
@@ -19,11 +19,12 @@ export default {
     components: {
         'bv-icon': Icon,
     },
+    date() {
+        return {
+            separator: '',
+        }
+    },
     props: {
-        separator: {
-            type: String,
-            default: '/',
-        },
         href: '',
         prefixCls: {
             type: String,
